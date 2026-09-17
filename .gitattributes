@@ -1,0 +1,19 @@
+# Data files must be committed byte for byte. core.autocrlf is true on this machine,
+# which would rewrite line endings inside CSVs and corrupt binary formats
+# (idx-ubyte, tfrecords, png, jpg, wav). This disables all text conversion.
+* -text
+
+# Treat the common data formats as binary so git never diffs or merges them.
+*.csv binary
+*.tsv binary
+*.json binary
+*.txt binary
+*.idx* binary
+*-ubyte binary
+*.tfrecords binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.wav binary
+*.npy binary
+*.mat binary
