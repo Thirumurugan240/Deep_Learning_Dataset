@@ -75,20 +75,6 @@ gen = ImageDataGenerator(rescale=1/255., validation_split=0.2)
 train = gen.flow_from_directory("satellite-image-classification", target_size=(150, 150), subset="training")
 ```
 
-## Re-downloading from source
-
-The datasets are committed, so cloning is enough. To refresh them from Kaggle instead:
-
-```bash
-pip install -r scripts/requirements.txt
-kaggle auth login
-python scripts/download_datasets.py --all
-```
-
-The downloader enforces the size rule on every run: it skips anything at or over 100 MB, and after
-unzipping it walks the extracted files and removes any dataset that hides an oversized file inside a small
-archive. Pass `--cap 0` to turn that off.
-
 ## Licensing
 
 Licenses vary per dataset and are recorded in `catalog/datasets.json`. They include CC0, CC BY, CC BY-SA,
